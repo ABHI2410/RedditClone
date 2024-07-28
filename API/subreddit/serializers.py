@@ -1,11 +1,11 @@
 from rest_framework import serializers
 from .models import Subreddit
 from django.contrib.auth.models import User
-from user.serializers import ProfileSerializer
+from user.serializers import UserSerializer
 
 
 class SubredditSerializer(serializers.ModelSerializer):
-    owner = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
+    owner = UserSerializer()
 
     class Meta:
         model = Subreddit
