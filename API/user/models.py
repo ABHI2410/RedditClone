@@ -5,9 +5,8 @@ from subreddit.models import Subreddit
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    username = models.CharField(max_length=255,unique=True,primary_key=True)
     dob = models.DateField(null=False, blank=False)
     bio = models.TextField(null=True, blank=True)
-    profilePicture = models.TextField(default="./static/profilePricture/default.svg")
-    subscribedSubreddits = models.ManyToManyField(Subreddit,related_name='subscribers')
+    profile_picture = models.ImageField(upload_to="media/profilePicture",default="media/profilePricture/default.svg")
+    subscribed_subreddits = models.ManyToManyField(Subreddit,related_name='subscribers')
     moderator = models.ManyToManyField(Subreddit, related_name='Moderator')
