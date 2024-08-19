@@ -9,6 +9,7 @@ const SubredditList = async () => {
         { next: { revalidate: 600}}
       )
       const result = await subreddits.json()
+      console.log(result)
   return (
     <>
         <div className="flex-grow ml-64 px=4 mt-20">
@@ -27,7 +28,7 @@ const SubredditList = async () => {
                             src="https://via.placeholder.com/100"
                             alt="Profile"
                             />
-                            <Link href={`/subreddits/${data.name.replace(/ /g, '_')}/`}>
+                            <Link href={`/subreddits/${data.id}/`}>
                                 <div className="text-sm font-semibold text-gray-900">
                                     {data.name}
                                 </div>

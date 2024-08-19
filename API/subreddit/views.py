@@ -6,3 +6,4 @@ from subreddit.serializers import SubredditSerializer
 class SubredditViewSet(viewsets.ModelViewSet):
     queryset = Subreddit.objects.all()
     serializer_class = SubredditSerializer
+    
